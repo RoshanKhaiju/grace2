@@ -1,0 +1,320 @@
+/* ----------------------------------------------------------------
+	Custom CSS
+
+	Add all your Custom Styled CSS here for New Styles or
+	Overwriting Default Theme Styles for Better Handling Updates
+-----------------------------------------------------------------*/
+:root {
+  --themecolor: #a71f36;
+}
+
+h1>span:not(.nocolor):not(.badge),
+h2>span:not(.nocolor):not(.badge),
+h3>span:not(.nocolor):not(.badge),
+h4>span:not(.nocolor):not(.badge),
+h5>span:not(.nocolor):not(.badge),
+h6>span:not(.nocolor):not(.badge) {
+  color: var(--themecolor);
+}
+
+@font-face {
+  font-family: "Futura";
+  /* IE9 Compat Modes */
+  src: url("fonts/futura-now/FuturaNowHeadline.ttf");
+}
+
+@font-face {
+  font-family: "Futura-Bold";
+  /* IE9 Compat Modes */
+  src: url("fonts/futura-now/FuturaNowHeadlineBold.ttf");
+}
+
+@font-face {
+  font-family: "Futura-Italic";
+  /* IE9 Compat Modes */
+  src: url("fonts/futura-now/FuturaNowHeadlineItalic.ttf");
+}
+
+@font-face {
+  font-family: "Futura-Bold-Italic";
+  /* IE9 Compat Modes */
+  src: url("fonts/futura-now/FuturaNowHeadlineBoldItalic.ttf");
+}
+
+a {
+  color: #a71f36;
+}
+
+.button {
+  background-color: #a71f36;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+.section {
+  margin: 0;
+}
+
+.button-grace {
+  color: #a71f36;
+  background-color: #fff !important;
+}
+
+.button-grace:hover {
+  background-color: #a71f36 !important;
+}
+
+/*--- Typography ---*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+#logo a,
+.menu-link,
+.mega-menu-style-2 .mega-menu-title>.menu-link,
+.top-search-form input,
+.entry-link,
+.entry.entry-date-section span,
+.button.button-desc,
+.fbox-content h3,
+.tab-nav-lg li a,
+.counter,
+label,
+.widget-filter-links li a,
+.nav-tree li a,
+.wedding-head,
+.font-primary {
+  font-family: "Futura", serif !important;
+}
+
+/*--- Header ---*/
+#logo img {
+  padding: 1.1rem 0;
+}
+
+#header-wrap::before {
+  width: 98%;
+  right: 1%;
+  border-radius: 8px;
+  padding: 2.75% 0;
+  background-color: #a71f36;
+}
+
+.menu-container>.menu-item>.menu-link {
+  font-size: 18px;
+  color: #fff;
+}
+
+/*--- Banner ---*/
+.tp-caption.Restaurant-Description,
+.Restaurant-Description {
+  font-style: italic;
+}
+
+/*--- Courses ---*/
+.recipe-itmes .card:hover img,
+.rotating:hover {
+  transform: none;
+  transition: none;
+}
+
+.testimonials-grid .grid-item {
+  padding: 1.75rem;
+}
+
+.clients-grid,
+.testimonials-grid {
+  gap: 1.75rem;
+}
+
+.recipe-itmes .card {
+  border: 1px solid #eee;
+}
+
+.recipe-itmes .row {
+  border-top: 0;
+}
+
+.recipe-itmes .row [class^="col-"] {
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.recipe-itmes .card {
+  margin-bottom: 2rem;
+}
+
+/*--- Course Single ---*/
+.course-img {
+  min-height: 450px;
+}
+
+/*--- FAQs ---*/
+.faqs .toggle {
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  width: 60rem;
+}
+
+.toggle-header {
+  font-size: 1.1rem;
+}
+
+.toggle-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle-title::after {
+  content: url(../images/icon/icon_53.svg);
+  background-image: none;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: 2rem;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+/*--- Responsive ---*/
+@media screen and (min-width: 1361px) {}
+
+@media (min-width: 992px) and (max-width: 1360px) {
+  #header-wrap::before {
+    padding: 3.25% 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    padding: 80px 0;
+    margin: 0;
+  }
+
+  #header-wrap {
+    margin-top: 1rem;
+  }
+
+  .grid-lg-3>.grid-item {
+    width: 31.875%;
+  }
+
+  #logo a.standard-logo {
+    display: block !important;
+  }
+
+  .course-header {
+    padding: 200px 0 230px;
+  }
+
+  .categories::after {
+    background: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0) 10%,
+        rgba(0, 0, 0, 0.8)) 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  #header {
+    border-bottom: none;
+  }
+
+  #logo img {
+    height: 80px !important;
+  }
+
+  #logo img {
+    padding: 1rem 0;
+  }
+
+  .menu-container>.menu-item>.menu-link {
+    color: #a71f36;
+    font-size: 16px;
+    font-weight: 600 !important;
+  }
+
+  .svg-trigger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .course-header {
+    padding: 64px 0 148px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+
+  .tp-caption.Restaurant-Description,
+  .Restaurant-Description {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+  }
+
+  .categories-lists {
+    margin-right: 15px;
+    margin-left: -5px;
+  }
+
+  .section {
+    margin-bottom: 0;
+  }
+
+  .rev_slider_wrapper {
+    height: 88% !important;
+  }
+
+  .uranus.tparrows:before {
+    font-size: 25px;
+    position: fixed;
+    bottom: -20px;
+    right: -20px;
+  }
+
+  #logo img {
+    padding: 1.25rem 0;
+  }
+
+  .content-wrap {
+    padding: 0;
+  }
+
+  .faqs .toggle {
+    width: 21rem;
+  }
+
+  .faq-title {
+    font-size: 36px;
+  }
+
+  .toggle-header {
+    font-size: 1rem;
+  }
+
+  #footer .footer-widgets-wrap {
+    position: relative;
+    padding: 72px 0 60px;
+  }
+
+  #page-title.page-title-parallax span {
+    color: #000;
+  }
+
+  .recipe-itmes .card {
+    margin-bottom: 1rem;
+  }
+}
