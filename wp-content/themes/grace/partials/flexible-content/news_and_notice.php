@@ -24,7 +24,7 @@
 
             <?php
             $args = array(
-                'post_type' => 'news_and_notice',
+                'post_type' => 'news',
                 'post_status' => 'publish',
                 'posts_per_page' => 3,
             );
@@ -35,21 +35,21 @@
                 while ($query->have_posts()) : $query->the_post();
             ?>
 
-                    <div class="col-md-4 mt-4">
-                        <div class="card border-0 shadow-sm">
-                            <?php the_post_thumbnail('newsAndNoticeImg', array('class' => 'card-img-top', 'alt' => 'Image')); ?>
-                            <div class="card-body" style="padding: 40px">
-                                <h4 class="card-title mb-3">
-                                    <?php the_title(); ?>
-                                </h4>
-                                <p class="card-text">
-                                    <?php the_excerpt(); ?>
-                                </p>
-                                <a href="<?php the_permalink(); ?>" class="card-link stretched-link">Learn More
-                                    <i class="icon-angle-right position-relative ml-2" style="top: 2px"></i></a>
-                            </div>
-                        </div>
+            <div class="col-md-4 mt-4">
+                <div class="card border-0 shadow-sm">
+                    <?php the_post_thumbnail('newsAndNoticeImg', array('class' => 'card-img-top', 'alt' => 'Image')); ?>
+                    <div class="card-body" style="padding: 40px">
+                        <h4 class="card-title mb-3">
+                            <?php the_title(); ?>
+                        </h4>
+                        <p class="card-text">
+                            <?php the_excerpt(); ?>
+                        </p>
+                        <a href="<?php the_permalink(); ?>" class="card-link stretched-link">Learn More
+                            <i class="icon-angle-right position-relative ml-2" style="top: 2px"></i></a>
                     </div>
+                </div>
+            </div>
 
             <?php
                 endwhile;

@@ -24,7 +24,7 @@ function create_custom_post_type()
         'menu_name' => _x('Courses', 'admin menu'),
         'name_admin_bar' => _x('courses', 'admin bar'),
         'add_new' => _x('Add New', 'add new'),
-        'add_new_item' => __('Add New courses'),
+        'add_new_item' => __('Add New Course'),
         'new_item' => __('New courses'),
         'edit_item' => __('Edit courses'),
         'view_item' => __('View courses'),
@@ -60,17 +60,17 @@ function create_custom_post_type()
     // News and Notice
     $labels = array(
         'name' => _x('News & Notice', 'plural'),
-        'singular_name' => _x('new & notice', 'singular'),
+        'singular_name' => _x('news & notice', 'singular'),
         'menu_name' => _x('News & Notice', 'admin menu'),
-        'name_admin_bar' => _x('new & notice', 'admin bar'),
+        'name_admin_bar' => _x('news & notice', 'admin bar'),
         'add_new' => _x('Add New', 'add new'),
         'add_new_item' => __('Add New News'),
         'new_item' => __('New news'),
-        'edit_item' => __('Edit nwes'),
-        'view_item' => __('View nwes'),
-        'all_items' => __('All nwes'),
-        'search_items' => __('Search nwes'),
-        'not_found' => __('No nwes found.'),
+        'edit_item' => __('Edit news'),
+        'view_item' => __('View news'),
+        'all_items' => __('All news'),
+        'search_items' => __('Search news'),
+        'not_found' => __('No news found.'),
     );
 
     $args = array(
@@ -87,13 +87,13 @@ function create_custom_post_type()
         'capability_type' => 'post',
         'show_in_rest' => true,
         'query_var' => true,
-        'rewrite' => array('slug' => 'news&notice'),
+        'rewrite' => array('slug' => 'news'),
         'has_archive' => true,
         'hierarchical' => false,
         'menu_position' => 6,
         'menu_icon' => 'dashicons-megaphone',
     );
 
-    register_post_type('news_and_notice', $args);
+    register_post_type('news', $args);
 }
 // Hooking up our function to theme setup
