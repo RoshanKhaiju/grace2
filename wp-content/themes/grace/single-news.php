@@ -14,77 +14,66 @@ get_header();
     <div class="container clearfix">
         <div class="single-post mb-0">
             <!-- Single Post -->
-            <div class="entry clearfix">
-                <!-- Entry Title -->
-                <?php while (have_posts()) : the_post(); ?>
-                    <div class="entry-title">
-                        <h2><?php the_title(); ?></h2>
-                    </div>
-                    <!-- .entry-title end -->
-
-                    <!-- Entry Meta -->
-                    <div class="entry-meta">
-                        <ul>
-                            <li><i class="icon-calendar3"></i> <?php echo get_the_date(); ?></li>
-                            <li>
-                                <a href="#"><i class="icon-user"></i> <?php the_author(); ?></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- .entry-meta end -->
-
-                    <!-- Entry Image -->
-                    <div class="entry-image bottommargin">
-                        <a href="#"><img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" /></a>
-                    </div>
-                    <!-- .entry-image end -->
-
-                    <!-- Entry Content -->
-                    <div class="entry-content mt-0">
-                        <?php the_content(); ?>
-                        <!-- Post Single - Content End -->
-
-                        <!-- Tag Cloud -->
-                        <?php
-                        $tags = get_terms([
-                            'taxonomy'  => 'post_tag',
-                            'hide_empty'    => false
-                        ]); ?>
-                        <div class="tagcloud clearfix bottommargin">
-                            <?php foreach ($tags as $tag) : ?>
-                                <a href="#"><?php echo $tag->name; ?></a>
-                            <?php endforeach; ?>
+            <?php if (have_posts()) : ?>
+                <div class="entry clearfix">
+                    <!-- Entry Title -->
+                    <?php while (have_posts()) : the_post(); ?>
+                        <div class="entry-title">
+                            <h2><?php the_title(); ?></h2>
                         </div>
-                        <!-- .tagcloud end -->
+                        <!-- .entry-title end -->
 
-                        <div class="clear"></div>
+                        <!-- Entry Meta -->
+                        <div class="entry-meta">
+                            <ul>
+                                <li><i class="icon-calendar3"></i> <?php echo get_the_date(); ?></li>
+                                <li>
+                                    <a href="#"><i class="icon-user"></i> <?php the_author(); ?></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- .entry-meta end -->
 
-                        <!-- Post Single - Share -->
-                        <div class="si-share border-0 d-flex justify-content-between align-items-center">
-                            <span>Share this Post:</span>
-                            <div>
-                                <a href="#" class="social-icon si-borderless si-facebook">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-twitter">
-                                    <i class="icon-twitter"></i>
-                                    <i class="icon-twitter"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-pinterest">
-                                    <i class="icon-pinterest"></i>
-                                    <i class="icon-pinterest"></i>
-                                </a>
-                                <a href="#" class="social-icon si-borderless si-email3">
-                                    <i class="icon-email3"></i>
-                                    <i class="icon-email3"></i>
-                                </a>
+                        <!-- Entry Image -->
+                        <div class="entry-image bottommargin">
+                            <a href="#"><img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" /></a>
+                        </div>
+                        <!-- .entry-image end -->
+
+                        <!-- Entry Content -->
+                        <div class="entry-content mt-0">
+                            <?php the_content(); ?>
+                            <!-- Post Single - Content End -->
+
+                            <!-- Tag Cloud -->
+                            <?php
+                            $tags = get_terms([
+                                'taxonomy'  => 'post_tag',
+                                'hide_empty'    => false
+                            ]); ?>
+                            <div class="tagcloud clearfix bottommargin">
+                                <?php foreach ($tags as $tag) : ?>
+                                    <a href="#"><?php echo $tag->name; ?></a>
+                                <?php endforeach; ?>
                             </div>
+                            <!-- .tagcloud end -->
+
+                            <div class="clear"></div>
+
+                            <!-- Post Single - Share -->
+                            <div class="si-share border-0 d-flex justify-content-between align-items-center">
+                                <span>Share this Post:</span>
+                                <div>
+                                    <?php echo do_shortcode("[sharethis-inline-buttons]"); ?>
+
+
+                                </div>
+                            </div>
+                            <!-- Post Single - Share End -->
                         </div>
-                        <!-- Post Single - Share End -->
-                    </div>
-                <?php endwhile; ?>
-            </div>
+                    <?php endwhile; ?>
+                </div>
+            <?php endif; ?>
             <!-- .entry end -->
 
             <!-- Post Navigation -->

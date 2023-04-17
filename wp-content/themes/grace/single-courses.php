@@ -71,68 +71,42 @@ get_header();
                     <div class="row justify-content-between mt-5 mb-4 clearfix">
                         <div class="offset-lg-1 col-lg-10 mt-5 mt-lg-0">
                             <h4>Course Details</h4>
-                            <div class="rounded position-relative dark mb-5 course-img" style="
-                        background: url('<?php the_post_thumbnail_url(); ?>')
-                          no-repeat center center / cover;
-                      "></div>
+                            <div class="rounded position-relative dark mb-5 course-img" style="background: url('<?php the_post_thumbnail_url(); ?>')no-repeat center center / cover;"></div>
 
                             <h4 class="mt-4 lh-base" style="line-height: 1.75 !important">
-                                This is an intensive course in Indian cookery. The
-                                students will be doing hands on cooking daily for 5 days a
-                                week in the Tandoor and the other cookery. Theory class
-                                will be limited to 40 minutes to maximise learning by
-                                doing hands-on cooking.
+                                <?php the_field('text_block'); ?>
                             </h4>
 
                             <div class="program-description">
                                 <div class="program-block cms-content" id="content-1">
                                     <div id="content-1" class="program-block cms-content">
-                                        <p>
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit, sed do eiusmod tempor incididunt ut labore et
-                                            dolore magna aliqua. Ut enim ad minim veniam, quis
-                                            nostrud exercitation ullamco laboris nisi ut aliquip
-                                            ex ea commodo consequat. Duis aute irure dolor in
-                                            reprehenderit in voluptate velit esse cillum dolore
-                                            eu fugiat nulla pariatur. Excepteur sint occaecat
-                                            cupidatat non proident, sunt in culpa qui officia
-                                            deserunt mollit anim id est laborum.
-                                        </p>
-                                        <h4>Intakes:</h4>
-                                        <p>September/October, February/March</p>
-                                        <h4>Entry Requirements:</h4>
-                                        <p>
-                                            Successful completion of undergraduate (Bachelor’s)
-                                            degree from any recognized university. Students
-                                            expecting to successfully complete the required
-                                            entry eligibility before commencement of academic
-                                            session be accepted in conditional basis.
-                                        </p>
+                                        <?php the_content(); ?>
                                     </div>
                                 </div>
                             </div>
 
-                            <h4>Requirements</h4>
-                            <ol class="list-unstyled list-preparation">
-                                <li>
-                                    Place frozen tater tots on a baking sheet and bake at
-                                    450˚F (230˚C) for 20 minutes, or until crispy. Set
-                                    aside.
-                                </li>
-                                <li>
-                                    In a large bowl, toss chicken thighs with 1 tablespoon
-                                    whole grain mustard, salt, pepper, and 1 tablespoon
-                                    olive oil.
-                                </li>
-                                <li>
-                                    In a cast iron skillet, cook on high heat until there is
-                                    a nice brown sear on the surface of the chicken, and the
-                                    inside is no longer pink.
-                                </li>
-                                <li>
-                                    Roughly four minutes each side. Set chicken aside.
-                                </li>
-                            </ol>
+                            <?php if (have_rows('requirement_list')) : ?>
+                                <h4>Requirements</h4>
+                                <ol class="list-unstyled list-preparation">
+                                    <?php
+                                    while (have_rows('requirement_list')) : the_row();
+                                    ?>
+                                        <li><?php the_sub_field('list'); ?></li>
+                                    <?php
+                                    endwhile;
+                                    ?>
+                                </ol>
+                            <?php endif; ?>
+
+                            <?php
+                            $document_link = get_field('document_link');
+                            if ($document_link) :
+                            ?>
+                                <div class="line my-5"></div>
+                                <div class="text-center mt-4 md-0"><a href="<?php echo $document_link['url']; ?>" class="button button-circle m-0"><i class="icon-line-cloud-download"></i> Download Form</a></div>
+                            <?php endif; ?>
+
+
 
                             <div class="line my-5"></div>
 
@@ -153,10 +127,6 @@ get_header();
                                 <div id="respond">
                                     <h4>Apply <span>Now</span></h4>
 
-                                    <?php
-                                    echo do_shortcode('[contact-form-7 id="243" title="Comment Form"]');
-                                    ?>
-
                                     <form class="row" action="#" method="post" id="commentform">
                                         <div class="col-md-4 form-group">
                                             <label class="nott ls0 font-weight-normal" for="author">Name</label>
@@ -175,11 +145,8 @@ get_header();
                                                     <option value="" disabled selected>
                                                         -- Select One --
                                                     </option>
-                                                    <option value="1 Star">1 Star</option>
-                                                    <option value="2 Star">2 Star</option>
-                                                    <option value="3 Star">3 Star</option>
-                                                    <option value="4 Star">4 Star</option>
-                                                    <option value="5 Star">5 Star</option>
+                                                    <option value="Certificate in Commercial Cookery Six (6) Month Course">Certificate in Commercial Cookery Six (6) Month Course</option>
+                                                    <option value="Certificate in Indian Cookery Three (3) Month Course">Certificate in Indian Cookery Three (3) Month Course</option>
                                                 </select>
                                             </div>
                                         </div>
